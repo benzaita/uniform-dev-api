@@ -55,9 +55,11 @@ dev.build:
 	yarn
 
 dev.start:
+	docker-compose up -d
 	yarn start
 
 dev.stop:
+	docker-compose stop
 	yarn stop
 
 dev.teardown:
