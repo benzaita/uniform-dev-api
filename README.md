@@ -22,6 +22,10 @@ Because you are free to implement this API any way you want (e.g. `make dev.buil
 
 ## The API
 
+### The `dev` Namespace
+
+Developer workflow is very different than workflow executed in continuous integration pipelines. The targets in the `dev` namespace aim to be optimized for the developer experience.
+
 ```
 make dev.setup
 ```
@@ -48,13 +52,24 @@ make dev.teardown
 
 Revert `make dev.setup`.
 
+### The `ci` Namespace
+
+The targets in the `ci` namespace aim to fit the continuous integration pipeline. These targets might make less use of caches in the local filesystem for example, and their names will probably correspond to the "stages" in the pipeline, for example:
+
+```
+make ci.test
+```
+
+```
+make ci.publish
+```
+
 ### Extensions
 
 If it makes sense to you, you can also define more targets like:
 
 ```
 make dev.db.migrate      # Run database migrations
-make ci.run              # Run the CI pipeline
 ```
 
 ## Examples
